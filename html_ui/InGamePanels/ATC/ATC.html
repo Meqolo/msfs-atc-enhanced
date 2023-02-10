@@ -1,0 +1,83 @@
+﻿<link rel="stylesheet" href="./atc.css" />
+
+<script type="text/html" import-template="/templates/NewPushButton/NewPushButton.html">
+</script>
+<script type="text/html" import-template="/templates/ToggleButton/toggleButton.html">
+</script>
+<script type="text/html" import-template="/templates/tabMenu/tabMenu.html">
+</script>
+
+<script type="text/html" id="ATC_PANEL_TEMPLATE" title="RADIO (ATC)" resize="both" min-width="50" min-height="45" content-fit="true">
+
+    <ui-element class="RadioOn" default-button auto-inside vertical-navigation=".Tabs, new-push-button">
+        <section id="ComSwitch">
+            <tab-menu class="Tabs" selectedIndex="0">
+                <tabmenu-item id="switchCom1" title="COM1" eventOnValidate="ATC_SWITCH_TO_COM_1"></tabmenu-item>
+                <tabmenu-item id="switchCom2" title="COM2" eventOnValidate="ATC_SWITCH_TO_COM_2"></tabmenu-item>
+                <tabmenu-item id="switchCom3" title="COM3" eventOnValidate="ATC_SWITCH_TO_COM_3"></tabmenu-item>
+            </tab-menu>
+        </section>
+
+        <section id="ATCDialogsDiv">
+            <!--<div class="toggleAtcSizeControl">
+                <icon-button class="Minimize" data-url="/icons/reduce.svg"></icon-button>
+                <icon-button class="Maximize" data-url="/icons/Open.svg"></icon-button>
+            </div>-->
+            <virtual-scroll id="ATCDialogs" class="condensed" direction="y"></virtual-scroll>
+        </section>
+
+
+        <section id="ATCRadio" class="hide cmpt-panel--panel">
+            <div id="Com1Section" class="radioSection">
+                <div class="radioDisplay">
+                    <div class="nameCounter">
+                        <span class="Name">ACTIVE</span>
+                        <span id="Com1ActiveFrequency" class="counter">
+                            <span class="value"></span>
+
+                        </span>
+                    </div>
+                    <div id="RadioSwap" navigation="true" class="button button-swap">
+                        <->
+                    </div>
+                    <div class="nameCounterControls">
+                        <span class="Name">STAND BY</span>
+
+                        <div class="nameCounter">
+                            <span id="Com1StandbyFrequency" class="counter">
+                                <input type="text" class="value" />
+                            </span>
+                            <div class="controlsColumn">
+                                <div id="Com1Plus" navigation="true" class="button button-plus">+</div>
+                                <div id="Com1Minus" navigation="true" class="button button-minus">-</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <virtual-scroll id="ATCOpromptOptions" class="cmpt-panel--panel condensedPanel condensed hide list-with-buttons" direction="y">
+            <ul id="ATCPrompt" style="display:none;"></ul>
+            <ul id="ATCOptions"></ul>
+        </virtual-scroll>
+
+        <section id="ATCATISdiv" class="cmpt-panel--panel">
+            <marquee id="ATCATIS" class="scroll-left" loop="1">test</marquee>
+        </section>
+    </ui-element>
+    <div class="RadioOff">
+        <div class="Line1">
+            <icon-element data-url="/icons/Warning.svg"></icon-element>
+            <div class="Title" data-l10n-id="TT:ATC.RADIO_OFF"></div>
+        </div>
+        <div class="Line2">
+            <div data-l10n-id="TT:ATC.OFF_COLD_N_DARK"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript" src="ATC.js"></script>

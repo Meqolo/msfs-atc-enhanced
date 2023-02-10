@@ -1,0 +1,644 @@
+@charset "UTF-8";
+/** This mixin makes a single line element fit exactly on the Roboto font for easier integration. */
+/**
+ * Forces z-index above other siblings during a focused parent.
+*/
+atc-panel {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fontSizeParagraph);
+  height: 100%;
+}
+atc-panel ul {
+  margin: 0;
+  padding: 0;
+}
+atc-panel p {
+  font-size: var(--fontSizeParagraph);
+}
+atc-panel .RadioOn {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+atc-panel .RadioOff {
+  display: block;
+  width: 95%;
+  position: relative;
+  left: 2.5%;
+  top: calc(var(--screenHeight) * (15px / 2160) );
+  background-color: var(--colorBackgroundPanel);
+}
+atc-panel .RadioOff .Line1 {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--colorBackgroundPanel);
+  font-weight: bold;
+  align-items: center;
+}
+atc-panel .RadioOff .Line1 .Title {
+  margin-left: calc(var(--screenHeight) * (15px / 2160) );
+}
+atc-panel .RadioOff .Line1 icon-element {
+  background-color: red;
+}
+atc-panel .RadioOff .Line2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--screenHeight) * (55px / 2160) );
+}
+atc-panel #ComSwitch {
+  padding: 0;
+  height: calc(var(--screenHeight) * (48px / 1080) );
+}
+atc-panel #ComSwitch tabmenu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: calc(var(--screenHeight) * (5px / 2160) ) 0;
+}
+atc-panel #ComSwitch tabmenu-item .title {
+  all: unset;
+  font-weight: 800;
+  margin-left: calc(var(--screenHeight) * (20px / 2160) );
+}
+atc-panel #ComSwitch tabmenu-item .subtitle {
+  all: unset;
+  margin-left: 0;
+  font-weight: bold;
+  max-width: calc(var(--screenHeight) * (220px / 2160) );
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+atc-panel #ComSwitch tabmenu-item .subtitle:empty:before {
+  display: none;
+}
+atc-panel #ComSwitch tabmenu-item .subtitle:before {
+  content: "";
+  display: inline-block;
+  width: calc(var(--screenHeight) * (6px / 2160) );
+  height: calc(var(--screenHeight) * (26px / 2160) );
+  background-color: var(--tc);
+  margin-left: calc(var(--screenHeight) * (10px / 2160) );
+  margin-right: calc(var(--screenHeight) * (5px / 2160) );
+  position: relative;
+  top: calc(var(--screenHeight) * (4px / 2160) );
+}
+atc-panel #ComSwitch tabmenu-item .metaData {
+  all: unset;
+  margin-left: auto;
+  font-weight: bold;
+  position: relative;
+  top: calc(var(--screenHeight) * (4px / 2160) );
+  padding-right: calc(var(--screenHeight) * (12px / 2160) );
+}
+atc-panel #ATCATISdiv {
+  margin-top: calc(var(--screenHeight) * (3px / 1080) );
+}
+atc-panel #ATCATISdiv #ATCATIS {
+  height: calc(var(--screenHeight) * (72px / 2160) );
+  display: block;
+  color: white;
+  background-color: var(--backgroundColorPanel);
+}
+atc-panel.inactive {
+  opacity: 0.1 !important;
+}
+atc-panel .ATCOptions_Clickable {
+  max-width: 100%;
+}
+atc-panel .ATCOptions_Clickable + .ATCOptions_Clickable {
+  margin-top: calc(var(--screenHeight) * (6px / 2160) );
+}
+atc-panel #ATCDialogsDiv {
+  display: flex;
+  flex: 1 0 calc(var(--screenHeight) * (100px / 1080) );
+  position: relative;
+  border-top: calc(var(--screenHeight) * (3px / 1080) ) solid white;
+  background-color: var(--backgroundColorPanel);
+  padding: var(--halfMargin);
+  min-height: 0;
+}
+atc-panel #ATCDialogsDiv .Minimize {
+  display: none;
+}
+atc-panel #ATCDialogsDiv.maximized {
+  min-height: calc(var(--screenHeight) * (450px / 2160) );
+}
+atc-panel #ATCDialogsDiv.maximized .Maximize {
+  display: none;
+}
+atc-panel #ATCDialogsDiv.maximized .Minimize {
+  display: block;
+}
+atc-panel #ATCDialogsDiv .toggleAtcSizeControl {
+  left: 0;
+  top: 0;
+  z-index: 2;
+  position: absolute;
+}
+atc-panel #ATCDialogsDiv .toggleAtcSizeControl icon-button {
+  width: calc(var(--screenHeight) * (48px / 2160) );
+  height: calc(var(--screenHeight) * (48px / 2160) );
+}
+atc-panel #ATCDialogsDiv #ATCDialogs {
+  margin: 0;
+  overflow-y: visible;
+  min-height: 0;
+  box-sizing: border-box;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li {
+  margin-bottom: calc(var(--screenHeight) * (24px / 2160) );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  --atcBGCol: red;
+  --atcCol: orange;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li .header {
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: calc(var(--screenHeight) * (8px / 2160) );
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) {
+  --atcBGCol: #3f4751;
+  --atcCol: white;
+  --atcIconBGCol: white;
+  --atcIconCol: #3f4751;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) .header {
+  text-align: left;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) .meta {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) .meta:after {
+  font-family: "ui-icon-font" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  background-color: unset;
+  content: "";
+  font-size: calc(var(--screenHeight) * (80px / 2160) );
+  display: flex;
+  justify-content: center;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) span {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) span:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - calc(var(--screenHeight) * (20px / 2160) ));
+  left: calc(var(--screenHeight) * (-20px / 2160) );
+  margin-top: auto;
+  border-top: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-bottom: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-right: calc(var(--screenHeight) * (20px / 2160) ) solid var(--color-white);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent {
+  --atcBGCol: var(--backgroundColorDarkerPanel);
+  --atcCol: var(--textColor);
+  --atcIconBGCol: var(--backgroundColorDarkerPanel);
+  --atcIconCol: var(--textColor);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent .header {
+  text-align: left;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent .message {
+  margin-left: var(--halfMargin);
+  margin-right: calc(calc(var(--screenHeight) * (48px / 1080) ) + var(--halfMargin));
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent .message:after {
+  content: "";
+  position: absolute;
+  top: calc(calc(var(--screenHeight) * (16px / 1080) ));
+  left: calc(var(--screenHeight) * (-20px / 2160) );
+  margin-top: auto;
+  border-top: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-bottom: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-right: calc(var(--screenHeight) * (20px / 2160) ) solid var(--color-white);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft {
+  --atcBGCol: var(--backgroundColorComponent);
+  --atcCol: var(--textColor);
+  --atcIconBGCol: var(--backgroundColorComponent);
+  --atcIconCol: var(--textColor);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .header {
+  text-align: right;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .wrapper {
+  flex-direction: row-reverse;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .meta {
+  margin-left: var(--halfMargin);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .meta:after {
+  font-size: calc(var(--screenHeight) * (80px / 2160) );
+  display: flex;
+  justify-content: center;
+  font-family: "ui-icon-font" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  background-color: unset;
+  content: "";
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .message {
+  margin-left: calc(calc(var(--screenHeight) * (48px / 1080) ) + var(--halfMargin));
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .message:after {
+  content: "";
+  position: absolute;
+  top: calc(calc(var(--screenHeight) * (16px / 1080) ));
+  right: calc(var(--screenHeight) * (-20px / 2160) );
+  margin-top: auto;
+  border-top: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-bottom: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-left: calc(var(--screenHeight) * (20px / 2160) ) solid var(--color-white);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li .wrapper {
+  display: flex;
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li .wrapper .meta {
+  width: calc(var(--screenHeight) * (48px / 1080) );
+  height: calc(var(--screenHeight) * (48px / 1080) );
+  background-color: var(--atcIconBGCol);
+  color: var(--atcIconCol);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--halfMargin);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs li .wrapper .message {
+  padding: calc(var(--screenHeight) * (12px / 2160) );
+  border-radius: var(--halfMargin);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  min-height: calc(var(--screenHeight) * (105px / 2160) );
+  font-weight: 500;
+  background-color: var(--atcBGCol);
+  color: var(--atcCol);
+}
+atc-panel #ATCDialogsDiv #ATCDialogs:empty {
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+}
+atc-panel #ATCOpromptOptions {
+  flex: 1000 1 calc(var(--baseMargin) + var(--halfMargin) + calc(var(--screenHeight) * (33px / 1080) ) * var(--nbButtons));
+  /*min-height: calc( calc(var(--screenHeight) * (33px / 1080) ) * var(--nbButtons));*/
+  max-height: calc(var(--baseMargin) + var(--halfMargin) + calc(var(--screenHeight) * (33px / 1080) ) * var(--nbButtons));
+  width: 100%;
+  position: relative;
+  padding: var(--halfMargin);
+  background-color: var(--backgroundColorPanel);
+  margin-top: calc(var(--screenHeight) * (3px / 1080) );
+}
+atc-panel #ATCOpromptOptions #ATCPrompt {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--textColor);
+  font-weight: bold;
+  height: calc(var(--screenHeight) * (82px / 2160) );
+}
+atc-panel #ATCOpromptOptions #ATCOptions {
+  width: 100%;
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button {
+  --width: auto;
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button:hover .textContentWrapper div p.title, atc-panel #ATCOpromptOptions #ATCOptions new-push-button:hover .textContentWrapper div p.subtitle {
+  color: var(--enabledHoverColor);
+  background-color: var(--enabledHoverBackGroundColor);
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button:active .textContentWrapper div p.title, atc-panel #ATCOpromptOptions #ATCOptions new-push-button:active .textContentWrapper div p.subtitle {
+  color: var(--activeColor);
+  background-color: var(--activeBackGroundColor);
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button .AtcPushButton .textContentWrapper {
+  font-weight: bold;
+  position: relative;
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button .AtcPushButton .textContentWrapper .icon {
+  display: none;
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button .AtcPushButton .textContentWrapper div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: calc(var(--screenHeight) * (72px / 2160) );
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button .AtcPushButton .textContentWrapper div p {
+  color: var(--enabledColor);
+  margin: 0;
+  line-height: calc(var(--screenHeight) * (40px / 2160) );
+  min-height: calc(var(--screenHeight) * (40px / 2160) );
+  display: flex;
+  align-items: center;
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button .AtcPushButton .textContentWrapper div p.title {
+  justify-content: center;
+  width: calc(var(--screenHeight) * (48px / 2160) );
+  height: 100%;
+  background-color: var(--enabledBackGroundColor);
+}
+atc-panel #ATCOpromptOptions #ATCOptions new-push-button .AtcPushButton .textContentWrapper div p.subtitle {
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  padding-left: calc(var(--screenHeight) * (20px / 2160) );
+  background-color: var(--enabledBackGroundColor);
+}
+
+ul {
+  list-style-type: none;
+}
+
+#ATCRadio {
+  padding-top: calc(var(--screenHeight) * (24px / 2160) );
+  padding-bottom: calc(var(--screenHeight) * (24px / 2160) );
+}
+#ATCRadio span.Name {
+  font-weight: bold;
+}
+#ATCRadio .radioSection .radioDisplay {
+  display: flex;
+  flex-direction: row;
+  min-width: 50%;
+  justify-content: center;
+  align-items: flex-end;
+}
+#ATCRadio .radioSection .radioDisplay > .nameCounter {
+  flex: 1;
+  align-items: center;
+}
+#ATCRadio .radioSection .radioDisplay #RadioSwap {
+  margin-right: calc(var(--screenHeight) * (34px / 2160) );
+}
+#ATCRadio .radioSection .radioDisplay .nameCounterControls {
+  flex: 1;
+  justify-content: center !important;
+}
+#ATCRadio .counter {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  width: 100%;
+  height: calc(var(--screenHeight) * (80px / 2160) );
+  background-color: var(--colorBackgroundPanel);
+  border: 0;
+  justify-content: flex-end;
+  position: relative;
+  width: 60%;
+}
+#ATCRadio .rowCounter > .counter {
+  width: 80%;
+}
+#ATCRadio .radioSection .radioDisplay .nameCounterControls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+#ATCRadio .radioSection .radioDisplay .nameCounterControls .nameCounter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: row;
+}
+#ATCRadio .counter .value {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--textColor);
+  text-align: right;
+  height: 100%;
+  vertical-align: middle;
+  width: 100%;
+  background-color: unset;
+  border: unset;
+}
+#ATCRadio .counter input.value {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+#ATCRadio .counter .Name {
+  position: absolute;
+  color: grey;
+  text-align: left;
+  left: 0px;
+  pointer-events: none;
+}
+#ATCRadio .counter .label {
+  position: relative;
+  width: 0px;
+}
+#ATCRadio .counter .value:focus {
+  background-color: inherit;
+}
+#ATCRadio .row {
+  width: 99%;
+  display: flex;
+  border: 1px inset black;
+  margin: 0.5%;
+}
+#ATCRadio .row > div {
+  flex-basis: 33%;
+}
+#ATCRadio .section {
+  display: flex;
+  flex-direction: row;
+}
+#ATCRadio .row-status > .section {
+  margin: 2px;
+}
+#ATCRadio .row-radio1 .section,
+#ATCRadio .row-radio2 .section {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+}
+#ATCRadio .radioSection {
+  padding-left: calc(var(--screenHeight) * (32px / 2160) );
+  padding-right: calc(var(--screenHeight) * (32px / 2160) );
+}
+#ATCRadio .radio1 .radioSection,
+#ATCRadio .radio2 .radioSection {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+}
+#ATCRadio .radioSection > div {
+  min-height: 50%;
+  max-height: 50%;
+}
+#ATCRadio .nameCounter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#ATCRadio .radio1,
+#ATCRadio .radio2 {
+  padding: 1% 0% 1% 0%;
+}
+#ATCRadio .radioSection .radioControls {
+  display: flex;
+  flex-direction: row;
+  min-width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+#ATCRadio .radioControls > div,
+#ATCRadio .radioControls > span {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+#ATCRadio div.radioPanel {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#ATCRadio .radioPanel > div {
+  flex: 0 0 50%;
+}
+#ATCRadio .controlsLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ATCRadio div.controlsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#ATCRadio .controls {
+  display: flex;
+  flex-direction: column;
+}
+#ATCRadio .button,
+#ATCRadio .switch {
+  min-width: calc(var(--screenHeight) * (72px / 2160) );
+  height: calc(var(--screenHeight) * (80px / 2160) );
+  background: var(--mainColor);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  box-sizing: border-box;
+  flex: 0;
+}
+#ATCRadio .button:hover, #ATCRadio .switch:hover {
+  background: white;
+}
+#ATCRadio .controlsColumn .button, #ATCRadio .controlsColumn .button:hover {
+  width: calc(var(--screenHeight) * (36px / 2160) );
+  height: calc(var(--screenHeight) * (36px / 2160) );
+}
+#ATCRadio div.DMEDisplay {
+  flex-basis: 80%;
+  justify-content: center;
+}
+#ATCRadio div.DMEDisplay > div {
+  flex-basis: 50%;
+}
+#ATCRadio div.DMEControls {
+  flex-basis: 20%;
+}
+#ATCRadio .row-autopilot > div {
+  flex-basis: 33%;
+}
+#ATCRadio div.rowCounter {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+#ATCRadio .row-status > .section {
+  justify-content: center;
+}
+#ATCRadio .active,
+#ATCRadio .active:hover {
+  color: #26e03b;
+}
+#ATCRadio span.button-active,
+#ATCRadio span.button-active-temp {
+  background: rgba(24, 24, 24, 0.5);
+  border: 2px outset white;
+}
+#ATCRadio .row-DME {
+  align-items: center;
+}
+#ATCRadio .row-VOR > svg {
+  height: 150px;
+  width: 150px;
+}
+#ATCRadio .svg-indicatorBackground {
+  fill: rgba(0, 0, 0, 0.3);
+}
+#ATCRadio .svg-indicatorCircle {
+  stroke: white;
+  stroke-width: 4;
+  fill: black;
+}
+#ATCRadio .svg-indicatorTriangle {
+  fill: white;
+}
+#ATCRadio .svg-line {
+  stroke: white;
+  stroke-width: 5;
+  fill: white;
+}
+#ATCRadio .column-indicators {
+  display: flex;
+  flex-direction: column;
+}
+#ATCRadio .svg-button {
+  fill: rgba(0, 0, 0, 0);
+  z-index: 2;
+}
+#ATCRadio .VOR-data-section {
+  display: flex;
+}
+#ATCRadio .svg-indicatorText {
+  fill: white;
+  font-size: 12px;
+}
+#ATCRadio .VOR-guideline {
+  stroke-width: 1px;
+  /*stroke-dasharray:1,1; Doesn't work currently*/
+}
+#ATCRadio .active-frequency {
+  border: solid 1px lightgreen;
+}
+
+/*# sourceMappingURL=atc.css.map */
